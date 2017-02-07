@@ -1,37 +1,29 @@
 <template>
-  <div id="app">
-    <h1>Hello App!</h1>
-    <p>
-      <!-- 使用 router-link 组件来导航. -->
-      <!-- 通过传入 `to` 属性指定链接. -->
-      <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-      <router-link to="/foo">Go to Foo</router-link>
-      <router-link to="/bar">Go to Bar</router-link>
-    </p>
-    <!-- 路由出口 -->
-    <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view></router-view>
-  </div>
+    <div id="app">
+      <router-view></router-view>
+      <router-view name="SidebarLeft"></router-view>
+      <ul>
+        <li>
+          <router-link to="/">/</router-link>
+        </li>
+        <li>
+          <router-link to="/other">/other</router-link>
+        </li>
+      </ul>
+    </div>
 </template>
-
 <script>
-import Hello from './components/Hello'
+    /* eslint-disable */
+    import Interface from './components/Interface'
+    import SidebarLeft from './components/SidebarLeft'
 
-export default {
-  name: 'app',
-  components: {
-    Hello
-  }
-}
+    export default {
+        name: 'app',
+        components: {
+            Interface,
+            SidebarLeft
+        }
+    }
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
