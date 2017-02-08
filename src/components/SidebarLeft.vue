@@ -29,21 +29,20 @@
   </el-row>
 </template>
 <script>
-  /* eslint-disable */
   export default {
-    name: "SidebarLeft",
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-        // console.log(this.$router);
-        this.$router.push(key);
+      name : 'SidebarLeft',
+      methods : {
+          handleOpen (key, keyPath) {
+              console.log(key, keyPath);
+          },
+          handleClose (key, keyPath) {
+              console.log(key, keyPath);
+          },
+          handleSelect (key, keyPath) {
+              console.log(key, keyPath);
+              // console.log(this.$router);
+              this.$router.push(key);
+          }
       }
-    }
-  }
+  };
 </script>

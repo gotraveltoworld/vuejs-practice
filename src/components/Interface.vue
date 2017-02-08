@@ -7,14 +7,14 @@
 <script>
     /* eslint-disable */
     export default {
-        name: 'Interface',
+        name : 'Interface',
         data() {
             return {}
         },
-        components: {},
-        computed: {},
-        watch: {},
-        methods: {}
+        components : {},
+        computed : {},
+        watch : {},
+        methods : {}
     }
 
 </script>

@@ -31,21 +31,21 @@
     </div>
 </template>
 <script>
-  export default {
-    data () {
-      return {
-        form: {
-          code: '',
-          loginMethod: ''
+    export default {
+        data () {
+            return {
+                form : {
+                    code : '',
+                    loginMethod : ''
+                }
+            };
+        },
+        methods : {
+            onSubmit () {
+                console.log('submit!');
+            }
         }
-      }
-    },
-    methods: {
-      onSubmit () {
-        console.log('submit!')
-      }
-    }
-  }
+    };
 </script>
 <style scoped>
     .admin-form {

@@ -12,6 +12,21 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
+    // Modify object key style
+    "key-spacing": ["error", {
+        "singleLine": {
+          "beforeColon": true,
+          "afterColon": true
+        },
+        "multiLine": {
+          "beforeColon": true,
+          "afterColon": true
+      }
+    }],
+    // allow semi ';'
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    // allow indent size 4 space
+    "indent": ["error", 4],
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await

@@ -12,23 +12,22 @@
     </div>
 </template>
 <script>
-    /* eslint-disable */
     export default {
-        name: 'App',
+        name : 'App',
         created () {
-          this.userStatus;
+            this.userStatus;
         },
-        computed: {
-          userStatus () {
-            let status = false;
-            if (status) {
-              this.$router.push('login');
-            } else {
-              this.$router.push('/');
+        computed : {
+            userStatus () {
+                let status = false;
+                if (status) {
+                    this.$router.push('login');
+                } else {
+                    this.$router.push('/');
+                }
             }
-          }
         }
-    }
+    };
 </script>
 <style scoped>
   #app {
