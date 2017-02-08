@@ -20,10 +20,13 @@ const router = new VueRouter({
     routes
 });
 
-Vue.http.interceptors.push((request, next) => {
-    request.credentials = true;
-    next();
-});
+import Api from './config/api.js';
+console.log(Api, 'Api in main.js');
+Api('service', 'hello');
+// Vue.http.interceptors.push((request, next) => {
+//     request.credentials = true;
+//     next();
+// });
 
 // Check login status before go to web site
 router.beforeEach(({meta, path}, from, next) => {
