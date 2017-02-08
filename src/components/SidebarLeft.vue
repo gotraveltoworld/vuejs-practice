@@ -1,13 +1,17 @@
 <template>
   <el-row class="tac">
-    <el-col :span="8">
+    <el-col :span="24">
       <el-menu default-active="2" class="el-menu-vertical-demo" 
-      @open="handleOpen" @close="handleClose" theme="dark">
+        @open="handleOpen" 
+        @close="handleClose" 
+        @select="handleSelect"
+        theme="dark">
         <el-submenu index="1">
           <template slot="title">系統訊息區</template>
           <el-menu-item-group title="訊息">
-            <el-menu-item index="1-1">最新公告</el-menu-item>
-            <el-menu-item index="1-2">版本紀錄</el-menu-item>
+            <el-menu-item index="/">最新公告</el-menu-item>
+            <el-menu-item index="/">版本紀錄</el-menu-item>
+            <el-menu-item index="/hello">Hello</el-menu-item>
           </el-menu-item-group>
           <!--<el-menu-item-group title="分组一">
             <el-menu-item index="1-1">最新訊息</el-menu-item>
@@ -34,6 +38,11 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+        // console.log(this.$router);
+        this.$router.push(key);
       }
     }
   }
