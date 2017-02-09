@@ -31,21 +31,28 @@
     </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                form : {
-                    code : '',
-                    loginMethod : ''
-                }
-            };
-        },
-        methods : {
-            onSubmit () {
-                console.log('submit!');
+export default {
+    data () {
+        return {
+            form : {
+                code : '',
+                loginMethod : ''
             }
+        };
+    },
+    methods : {
+        onSubmit () {
+            console.log(this);
+            // console.log(this.$sysApi('service', 'login', {}, 'http://demo.hub.org.tw/api').resource);
+            let api = this.$sysApi('service', 'login', {}, 'http://demo.hub.org.tw/api').resource;
+            api.then(function (res) {
+                console.log(res);
+            }, (error) => {
+                console.log(error);
+            });
         }
-    };
+    }
+};
 </script>
 <style scoped>
     .admin-form {

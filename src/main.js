@@ -3,8 +3,8 @@
 import Vue from 'vue';
 import App from './App';
 
-import VueResource from 'vue-resource';
-Vue.use(VueResource);
+// import VueResource from 'vue-resource';
+// Vue.use(VueResource);
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -21,12 +21,7 @@ const router = new VueRouter({
 });
 
 import Api from './config/api.js';
-console.log(Api, 'Api in main.js');
-Api('service', 'hello');
-// Vue.http.interceptors.push((request, next) => {
-//     request.credentials = true;
-//     next();
-// });
+Vue.prototype.$sysApi = Api;
 
 // Check login status before go to web site
 router.beforeEach(({meta, path}, from, next) => {

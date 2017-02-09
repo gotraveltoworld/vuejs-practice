@@ -5,18 +5,16 @@
     </div>
 </template>
 <script>
-    /* eslint-disable */
-    export default {
-        name : 'Interface',
-        data() {
-            return {}
-        },
-        components : {},
-        computed : {},
-        watch : {},
-        methods : {}
-    }
-
+export default {
+    name : 'Interface',
+    data () {
+        return {};
+    },
+    components : {},
+    computed : {},
+    watch : {},
+    methods : {}
+};
 </script>
 <style scoped>
     .body {

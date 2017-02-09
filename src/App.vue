@@ -12,22 +12,22 @@
     </div>
 </template>
 <script>
-    export default {
-        name : 'App',
-        created () {
-            this.userStatus;
-        },
-        computed : {
-            userStatus () {
-                let status = false;
-                if (status) {
-                    this.$router.push('login');
-                } else {
-                    this.$router.push('/');
-                }
+export default {
+    name : 'App',
+    created () {
+        this.userStatus;
+    },
+    computed : {
+        userStatus () {
+            let status = false;
+            if (status) {
+                this.$router.push('login');
+            } else {
+                this.$router.push('/');
             }
         }
-    };
+    }
+};
 </script>
 <style scoped>
   #app {
