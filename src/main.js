@@ -21,7 +21,8 @@ const router = new VueRouter({
 });
 
 import Api from './config/api.js';
-Vue.prototype.$sysApi = Api;
+
+// Vue.prototype.$sysApi = Api;
 
 // Check login status before go to web site
 router.beforeEach(({meta, path}, from, next) => {
@@ -39,6 +40,7 @@ router.beforeEach(({meta, path}, from, next) => {
 new Vue({
     router,
     config,
+    sysApi : Api,
     el : '#app',
     template : '<App/>',
     components : { App }

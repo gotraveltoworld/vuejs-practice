@@ -5,34 +5,34 @@ Vue.http.interceptors.push((request, next) => {
     request.credentials = true;
     next();
 });
-const vm = new Vue();
-module.exports = function (service, action, params = {}, url = 'http://localhost:8080') {
+
+module.exports = function (option) {
+    // service, action, params = {}, url = 'http://localhost:8080'
     // const SYSTEM_ENV = 'online';
-    let SERVER = url;
-    let http = vm;
-    let that = this;
-    function Api () {}
-    Api.prototype.config = function (service, action, params) {
+    let SERVER = option.url || 'http://localhost:8080';
+    let service = option.service || '';
+    let action = option.action || '';
+    let params = option.params || {};
+    let http = new Vue();
+    // let that = this;
+    // Include api function.
+    function api (service, action, params) {
         let httpObj = {};
         switch (service) {
         default :
             httpObj = {
-                login : { method : 'GET', url : SERVER + '/login/test/05076416' }
+                login : { method : 'GET', url : SERVER + '/login/test/{id}' },
+                logout : { method : 'POST', url : SERVER + '/login/test/' }
             };
             return httpObj;
         }
     };
-    let api = new Api();
-    that.resource = new Promise((resolve, reject) => {
-        http.$resource(SERVER, {}, api.config(service, action))[action]().then((res) => {
-            if (res.body.status === 1) {
-                return resolve(res.body);
-            } else {
-                return resolve('api error');
-            }
-        }, (res) => {
-            return reject('http error');
-        });
-    });
-    return that;
+    let obj = {
+        api : http.$resource(SERVER, {}, api(service, action, params))[action](params).then((res) => {
+            return res.body;
+        }, (error) => {
+            return error;
+        })
+    };
+    return obj;
 };

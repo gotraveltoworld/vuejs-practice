@@ -42,14 +42,21 @@ export default {
     },
     methods : {
         onSubmit () {
-            console.log(this);
-            // console.log(this.$sysApi('service', 'login', {}, 'http://demo.hub.org.tw/api').resource);
-            let api = this.$sysApi('service', 'login', {}, 'http://demo.hub.org.tw/api').resource;
-            api.then(function (res) {
+            // console.log(this.$root);
+            var apiAry = this.$root.$options.sysApi;
+            apiAry({
+                service : 'login',
+                action : 'logout',
+                params : {id : '05076416'}
+            }).api.then((res) => {
                 console.log(res);
-            }, (error) => {
-                console.log(error);
+            }, (err) => {
+                console.log(err);
             });
+            // console.log(a);
+            // a.then((res) => {
+            //     console.log(res);
+            // });
         }
     }
 };
