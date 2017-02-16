@@ -3,7 +3,15 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 Vue.http.interceptors.push((request, next) => {
     request.credentials = true;
-    next();
+    // console.log(next);
+    next(function (response) {
+        console.log(response.status);
+        // if (response.ok === false) {
+        //     return false;
+        // }
+    }, (response) => {
+        console.log('error');
+    });
 });
 
 module.exports = function (option) {
